@@ -1,0 +1,14 @@
+{
+  "name": "@rustic/library-sync-server",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "repository": "https://github.com/rustic-music-player/library-sync",
+  "author": "Max Jöhnk <maxjoehnk@gmail.com>",
+  "license": "GPL-3.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.6"
+  }
+}

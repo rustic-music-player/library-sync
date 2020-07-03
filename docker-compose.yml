@@ -1,0 +1,9 @@
+version: '3'
+services:
+  server:
+    build: packages/server
+    image: docker.pkg.github.com/rustic-music-player/library-sync/server:latest
+    environment:
+      - "REDIS_URL=redis://kv"
+  kv:
+    image: redis:6
