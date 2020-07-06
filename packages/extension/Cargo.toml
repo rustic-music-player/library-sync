@@ -4,5 +4,12 @@ version = "0.1.0"
 authors = ["Max Jöhnk <maxjoehnk@gmail.com>"]
 edition = "2018"
 
+[lib]
+crate-type = ["cdylib"]
+
 [dependencies]
+async-trait = "0.1"
+log = "0.4"
+failure = "0.1"
 rustic-extension-api = { git = "https://github.com/rustic-music-player/rustic.git" }
+rustic-core = { git = "https://github.com/rustic-music-player/rustic.git" }

@@ -8,6 +8,12 @@ pub struct LibrarySyncExtension {
 }
 
 impl ExtensionLibrary for LibrarySyncExtension {
+    fn new(config: HashMap<String, ExtensionConfigValue>) -> Self {
+        LibrarySyncExtension {
+            server: LibrarySyncExtension::get_server_url(config),
+        }
+    }
+
     fn metadata() -> ExtensionMetadata {
         ExtensionMetadata {
             id: String::from("library-sync"),
@@ -15,17 +21,11 @@ impl ExtensionLibrary for LibrarySyncExtension {
             version: crate_version!(),
         }
     }
-
-    fn new(config: HashMap<String, ExtensionConfigValue>) -> Box<dyn Extension> {
-        let extension = LibrarySyncExtension {
-            server: LibrarySyncExtension::get_server_url(config),
-        };
-        Box::new(extension)
-    }
 }
 
 impl Extension for LibrarySyncExtension {}
 
+#[async_trait::async_trait]
 impl ExtensionApi for LibrarySyncExtension {}
 
 impl LibrarySyncExtension {
@@ -43,3 +43,5 @@ impl LibrarySyncExtension {
             .to_string()
     }
 }
+
+host_extension!(LibrarySyncExtension);
